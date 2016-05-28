@@ -11,6 +11,8 @@ from email.MIMEText import MIMEText
 import requests
 from lxml import html
 
+import random
+
 def sendMailWrapper(fromaddr, toaddr, subject, content, passwd): 
  
 	msg = MIMEMultipart()
@@ -50,6 +52,29 @@ def collectCodeFromSOF(url):
 	return code
 
 
+def scanStackOverFlow(keywords):
+
+	"""
+	This function generate random url,
+	scan the page subject and compare it to
+	the input keywords
+
+	Return the url of selected pages
+
+	[TODO]
+	=> parse page title
+	=> compare keywords
+	=> work on return value
+	"""
+
+	# Url Generation
+	prefix = "http://stackoverflow.com/questions/"
+	for number in range(1, 99999):
+		generatedUrl = prefix + str(number) + "/"
+		print generatedUrl
+
+
+	return 0
 
 
 
@@ -77,6 +102,8 @@ prices = tree.xpath('//span[@class="item-price"]/text()')
 #tree = html.fromstring(page.content)
 #code = tree.xpath('//code/text()')
 #print code;
+
+
 
 
 
