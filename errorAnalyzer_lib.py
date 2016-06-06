@@ -156,6 +156,10 @@ def fixSimpleError(scan_log, script):
 				if(line_number != lineToChange):
 					fileToWrite.write(lineModel)
 				else:
+					###############
+					# CORRECTIONS #############################################
+					###############
+					
 					if(lineInArray[2] == "\";\""):
 						lineModelWithoutBackN = lineModel.replace("\n", "")	
 						fileToWrite.write(lineModelWithoutBackN+";\n")
@@ -220,5 +224,5 @@ def IdentifySimpleError(langage, errorLog):
 """
 TEST SPACE
 """
-scanForSimpleError("test.pl")
-fixSimpleError("scan.log", "test.pl")
+#scanForSimpleError("test.pl")
+#fixSimpleError("scan.log", "test.pl")
