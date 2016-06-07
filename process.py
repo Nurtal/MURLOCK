@@ -19,6 +19,10 @@ print "*-----------------------------------*"
 print "|      Scanning StackOverFLow       |"
 print "*-----------------------------------*"
 trashlib.customScanStackOverFlow()
+
+
+"""          OBSOLETE 
+
 print "*-----------------------------------*"
 print "|   Looking for \"best\" Langage    |"
 print "*-----------------------------------*"
@@ -51,7 +55,7 @@ for line in urlFile:
 
 
 urlFile.close()
-
+"""
 
 
 
