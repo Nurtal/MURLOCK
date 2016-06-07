@@ -162,6 +162,21 @@ def customScanStackOverFlow():
 	sql_count = 0
 	javascript_count = 0
 
+	# dataFile
+	perlUrl_file = "DATA/perlUrl.data"
+	cUrl_file = "DATA/cUrl.data"
+	csharpUrl_file = "DATA/csharpUrl.data"
+	cplusUrl_file = "DATA/cplusUrl.data"
+	javaUrl_file = "DATA/javaUrl.data"
+	bashUrl_file = "DATA/bashUrl.data"
+	pythonUrl_file = "DATA/pythonUrl.data"
+	rubyUrl_file = "DATA/rubyUrl.data"
+	htmlUrl_file = "DATA/htmlUrl.data"
+	phpUrl_file = "DATA/phpUrl.data"
+	sqlUrl_file = "DATA/sqlUrl.data"
+	javascriptUrl_file = "DATA/javascriptUrl.data"
+	
+
 	# look for existing log file
 	startNumber = 1
 	if os.path.isfile("DATA/log/customScan.log"):
@@ -200,6 +215,44 @@ def customScanStackOverFlow():
 		logFile.close()
 			
 
+	# Look for existing data file
+	if not os.path.isfile(perlUrl_file):
+		fileToInit = open(perlUrl_file, "w")
+		fileToInit.close()
+	if not os.path.isfile(cUrl_file):
+		fileToInit = open(cUrl_file, "w")    
+		fileToInit.close()
+	if not os.path.isfile(cplusUrl_file):
+		fileToInit = open(cplusUrl_file, "w")    
+		fileToInit.close()
+	if not os.path.isfile(csharpUrl_file):
+		fileToInit = open(csharpUrl_file, "w")
+		fileToInit.close()
+	if not os.path.isfile(javaUrl_file):
+		fileToInit = open(javaUrl_file, "w")
+		fileToInit.close()
+	if not os.path.isfile(bashUrl_file):
+		fileToInit = open(bashUrl_file, "w")
+		fileToInit.close()
+	if not os.path.isfile(pythonUrl_file):
+		fileToInit = open(pythonUrl_file, "w")
+		fileToInit.close()
+	if not os.path.isfile(rubyUrl_file):
+		fileToInit = open(rubyUrl_file, "w")
+		fileToInit.close()
+	if not os.path.isfile(htmlUrl_file):
+		fileToInit = open(htmlUrl_file, "w")
+		fileToInit.close()
+	if not os.path.isfile(phpUrl_file):
+		fileToInit = open(phpUrl_file, "w")
+		fileToInit.close()
+	if not os.path.isfile(sqlUrl_file):
+		fileToInit = open(sqlUrl_file, "w")
+		fileToInit.close()
+	if not os.path.isfile(javascriptUrl_file):
+		fileToInit = open(javascriptUrl_file, "w")
+		fileToInit.close()	
+
 	# Url Generation
 	prefix = "http://stackoverflow.com/questions/"
 	for number in range(startNumber, 200):
@@ -234,129 +287,140 @@ def customScanStackOverFlow():
 			precision = titleInArray[1]
 
 			print "["+str(number)+"] "+title[0]
+
 			for mesh in mainSubject.split(" "):
-				if mesh == "perl":
+				if mesh.lower() == "perl":
 					perl_count = perl_count + 1
-				elif mesh == "Perl":
-					perl_count = perl_count + 1
-				elif mesh == "C":
+					fileToAdd = open(perlUrl_file, "a")
+					fileToAdd.write(generatedUrl+"\n")
+					fileToAdd.close()
+				elif mesh.lower() == "c":
 					c_count = c_count + 1
-				elif mesh == "c":
-					c_count = c_count + 1
-				elif mesh == "C#":
+					fileToAdd = open(cUrl_file, "a")
+					fileToAdd.write(generatedUrl+"\n")
+					fileToAdd.close()
+				elif mesh.lower() == "c#":
 					csharp_count = csharp_count + 1
-				elif mesh == "c#":
-					csharp_count = csharp_count + 1
-				elif mesh == "C++":
+					fileToAdd = open(csharpUrl_file, "a")
+					fileToAdd.write(generatedUrl+"\n")
+					fileToAdd.close()
+				elif mesh.lower() == "c++":
 					cplus_count = cplus_count + 1
-				elif mesh == "c++":
-					cplus_count = cplus_count + 1
-				elif mesh == "java":
+					fileToAdd = open(cplusUrl_file, "a")
+					fileToAdd.write(generatedUrl+"\n")
+					fileToAdd.close()
+				elif mesh.lower() == "java":
 					java_cout = java_count + 1
-				elif mesh == "Java":
-					java_count = java_count + 1
-				elif mesh == "JAVA":
-					java_count = java_count + 1
-				elif mesh == "bash":
+					fileToAdd = open(javaUrl_file, "a")
+					fileToAdd.write(generatedUrl+"\n")
+					fileToAdd.close()
+				elif mesh.lower() == "bash":
 					bash_count = bash_count + 1
-				elif mesh == "Bash":
-					bash_count = bash_count + 1
-				elif mesh == "BASH":
-					bash_count = bash_count + 1
-				elif mesh == "python":
+					fileToAdd = open(bashUrl_file, "a")
+					fileToAdd.write(generatedUrl+"\n")
+					fileToAdd.close()
+				elif mesh.lower() == "python":
 					python_count = python_count + 1
-				elif mesh == "Python":
-					python_count = python_count + 1
-				elif mesh == "ruby":
+					fileToAdd = open(pythonUrl_file, "a")
+					fileToAdd.write(generatedUrl+"\n")
+					fileToAdd.close()
+				elif mesh.lower() == "ruby":
 					ruby_count = ruby_count + 1
-				elif mesh == "Ruby":
-					ruby_count = ruby_count + 1
-				elif mesh == "html":
+					fileToAdd = open(rubyUrl_file, "a")
+					fileToAdd.write(generatedUrl+"\n")
+					fileToAdd.close()
+				elif mesh.lower() == "html":
 					html_count = html_count + 1
-				elif mesh == "Html":
-					html_count = html_count + 1
-				elif mesh == "HTML":
-					html_count = html_count + 1
-				elif mesh == "php":
+					fileToAdd = open(htmlUrl_file, "a")
+					fileToAdd.write(generatedUrl+"\n")
+					fileToAdd.close()
+				elif mesh.lower() == "php":
 					php_count = php_count + 1
-				elif mesh == "Php":
-					php_count = php_count + 1
-				elif mesh == "PHP":
-					php_count = php_count + 1
-				elif mesh == "sql":
+					fileToAdd = open(phpUrl_file, "a")
+					fileToAdd.write(generatedUrl+"\n")
+					fileToAdd.close()
+				elif mesh.lower() == "sql":
 					sql_count = sql_count + 1
-				elif mesh == "SQL":
+					fileToAdd = open(sqlUrl_file, "a")
+					fileToAdd.write(generatedUrl+"\n")
+					fileToAdd.close()
+				elif mesh.lower() == "mysql":
 					sql_count = sql_count + 1
-				elif mesh == "mySQL":
-					sql_count = sql_count + 1
-				elif mesh == "MYsql":
-					sql_count = sql_count + 1
+					fileToAdd = open(sqlUrl_file, "a")
+					fileToAdd.write(generatedUrl+"\n")
+					fileToAdd.close()
 				elif mesh.lower() == "javascript":
 					javascript_count = javascript_count + 1
+					fileToAdd = open(javascriptUrl_file, "a")
+					fileToAdd.write(generatedUrl+"\n")
+					fileToAdd.close()
 			
 			for mesh in precision.split(" "):
-				if mesh == "perl":                      
+				if mesh.lower() == "perl":                      
 					perl_count = perl_count + 1
-				elif mesh == "Perl":            
-					perl_count = perl_count + 1
-				elif mesh == "C": 
+					fileToAdd = open(perlUrl_file, "a")
+					fileToAdd.write(generatedUrl+"\n")
+					fileToAdd.close()
+				elif mesh.lower() == "c":                                                       
 					c_count = c_count + 1
-				elif mesh == "c":                                                       
-					c_count = c_count + 1
-				elif mesh == "C#":                                                      
-					csharp_count = csharp_count + 1
-				elif mesh == "c#":
-					csharp_count = csharp_count + 1                 
-				elif mesh == "C++":
+					fileToAdd = open(cUrl_file, "a")
+					fileToAdd.write(generatedUrl+"\n")
+					fileToAdd.close()
+				elif mesh.lower() == "c#":
+					csharp_count = csharp_count + 1     
+					fileToAdd = open(csharpUrl_file, "a")
+					fileToAdd.write(generatedUrl+"\n")
+					fileToAdd.close()            
+				elif mesh.lower() == "c++":
 					cplus_count = cplus_count + 1
-				elif mesh == "c++":
-					cplus_count = cplus_count + 1
-				elif mesh == "java":            
+					fileToAdd = open(cplusUrl_file, "a")
+					fileToAdd.write(generatedUrl+"\n")
+					fileToAdd.close()
+				elif mesh.lower() == "java":            
 					java_cout = java_count + 1
-				elif mesh == "Java":    
-					java_count = java_count + 1
-				elif mesh == "JAVA":            
-					java_count = java_count + 1
-				elif mesh == "bash":            
+					fileToAdd = open(javaUrl_file, "a")
+					fileToAdd.write(generatedUrl+"\n")
+					fileToAdd.close()
+				elif mesh.lower() == "bash":            
 					bash_count = bash_count + 1
-				elif mesh == "Bash":    
-					bash_count = bash_count + 1
-				elif mesh == "BASH":    
-					bash_count = bash_count + 1
-				elif mesh == "python":
+					fileToAdd = open(bashUrl_file, "a")
+					fileToAdd.write(generatedUrl+"\n")
+					fileToAdd.close()
+				elif mesh.lower() == "python":
 					python_count = python_count + 1
-				elif mesh == "Python":
-					python_count = python_count + 1
-				elif mesh == "ruby":
+					fileToAdd = open(pythonUrl_file, "a")
+					fileToAdd.write(generatedUrl+"\n")
+					fileToAdd.close()
+				elif mesh.lower() == "ruby":
 					ruby_count = ruby_count + 1
-				elif mesh == "Ruby":
-					ruby_count = ruby_count + 1
-				elif mesh == "html":
+					fileToAdd = open(rubyUrl_file, "a")
+					fileToAdd.write(generatedUrl+"\n")
+					fileToAdd.close()
+				elif mesh.lower() == "html":
 					html_count = html_count + 1
-				elif mesh == "Html":
-					html_count = html_count + 1
-				elif mesh == "HTML":
-					html_count = html_count + 1
-				elif mesh == "php":
+					fileToAdd = open(htmlUrl_file, "a")
+					fileToAdd.write(generatedUrl+"\n")
+					fileToAdd.close()
+				elif mesh.lower() == "php":
 					php_count = php_count + 1
-				elif mesh == "Php":
-					php_count = php_count + 1
-				elif mesh == "PHP":
-					php_count = php_count + 1
-				elif mesh == "sql":
+					fileToAdd = open(phpUrl_file, "a")
+					fileToAdd.write(generatedUrl+"\n")
+					fileToAdd.close()
+				elif mesh.lower() == "sql":
 					sql_count = sql_count + 1
-				elif mesh == "SQL":
+					fileToAdd = open(sqlUrl_file, "a")
+					fileToAdd.write(generatedUrl+"\n")
+					fileToAdd.close()
+				elif mesh.lower() == "mysql":
 					sql_count = sql_count + 1
-				elif mesh == "mySQL":
-					sql_count = sql_count + 1
-				elif mesh == "MYsql":
-					sql_count = sql_count + 1
+					fileToAdd = open(sqlUrl_file, "a")
+					fileToAdd.write(generatedUrl+"\n")
+					fileToAdd.close()
 				elif mesh.lower() == "javascript":
 					javascript_count = javascript_count + 1
-
-
-
-
+					fileToAdd = open(javascriptUrl_file, "a")
+					fileToAdd.write(generatedUrl+"\n")
+					fileToAdd.close()
 
 
 	print "perl: " +str(perl_count) +"\n"
