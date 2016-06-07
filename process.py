@@ -18,7 +18,7 @@ Get Data from StackOverflow
 print "*-----------------------------------*"
 print "|      Scanning StackOverFLow       |"
 print "*-----------------------------------*"
-#trashlib.customScanStackOverFlow()
+trashlib.customScanStackOverFlow()
 print "*-----------------------------------*"
 print "|   Looking for \"best\" Langage    |"
 print "*-----------------------------------*"

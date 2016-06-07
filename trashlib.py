@@ -12,6 +12,7 @@ import requests
 from lxml import html
 
 import random
+import os.path
 
 def sendMailWrapper(fromaddr, toaddr, subject, content, passwd): 
  
@@ -161,23 +162,78 @@ def customScanStackOverFlow():
 	sql_count = 0
 	javascript_count = 0
 
+	# look for existing log file
+	startNumber = 1
+	if os.path.isfile("DATA/log/customScan.log"):
+		logFile = open("DATA/log/customScan.log", "r")
+		for line in logFile:
+			lineWithoutBackN = line.replace("\n", "")
+			lineInArray = lineWithoutBackN.split(",")
+			
+			if lineInArray[0] == "Current topic":
+				startNumber = int(lineInArray[1])
+			elif lineInArray[0] == "perl":
+				perl_count = int(lineInArray[1])
+			elif lineInArray[0] == "c":
+				c_count = int(lineInArray[1])
+			elif lineInArray[0] == "c++":
+				cplus_count = int(lineInArray[1])
+			elif lineInArray[0] == "c#":
+				csharp_count = int(lineInArray[1])
+			elif lineInArray[0] == "Java":
+				java_count = int(lineInArray[1])
+			elif lineInArray[0] == "Bash":
+				bash_count = int(lineInArray[1])
+			elif lineInArray[0] == "Python":
+				python_count = int(lineInArray[1])
+			elif lineInArray[0] == "Ruby":
+				ruby_count = int(lineInArray[1])
+			elif lineInArray[0] == "Html":
+				html_count = int(lineInArray[1])
+			elif lineInArray[0] == "Php":
+				php_count = int(lineInArray[1])
+			elif lineInArray[0] == "SQL":
+				sql_count = int(lineInArray[1])
+			elif lineInArray[0] == "JavaScript":
+				javascript_count = int(lineInArray[1])
+				
+		logFile.close()
+			
+
 	# Url Generation
 	prefix = "http://stackoverflow.com/questions/"
-	for number in range(1, 200):
+	for number in range(startNumber, 200):
 		generatedUrl = prefix + str(number) + "/"
-
+		
 		# Get title of the page
 		page = requests.get(generatedUrl)
 		tree = html.fromstring(page.content)
 		title = tree.xpath('//title/text()')
 		titleInArray = title[0].split('-')
 
+		# Write data in log file
+		logFile = open("DATA/log/customScan.log", "w")
+		logFile.write("Current topic,"+str(number)+"\n")
+		logFile.write("perl," +str(perl_count) +"\n")
+		logFile.write("c," +str(c_count) +"\n")
+		logFile.write("c++," +str(cplus_count) +"\n")
+		logFile.write("c#," +str(csharp_count) +"\n")
+		logFile.write("Java," +str(java_count) +"\n")
+		logFile.write("Bash," +str(bash_count) +"\n")
+		logFile.write("Python,"+str(python_count) +"\n")
+		logFile.write("Ruby,"+str(ruby_count) +"\n")
+		logFile.write("Html,"+str(html_count) +"\n")
+		logFile.write("Php,"+str(php_count) +"\n")
+		logFile.write("SQL,"+str(sql_count) +"\n")
+		logFile.write("JavaScript,"+str(javascript_count) +"\n")
+		logFile.close()
+		
 		# Scan Subject
 		if titleInArray[0] != "Page Not Found ":
 			mainSubject = titleInArray[0]
 			precision = titleInArray[1]
 
-			print title[0]
+			print "["+str(number)+"] "+title[0]
 			for mesh in mainSubject.split(" "):
 				if mesh == "perl":
 					perl_count = perl_count + 1
