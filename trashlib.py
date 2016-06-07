@@ -13,6 +13,8 @@ from lxml import html
 
 import random
 import os.path
+from time import sleep
+
 
 def sendMailWrapper(fromaddr, toaddr, subject, content, passwd): 
  
@@ -263,6 +265,7 @@ def customScanStackOverFlow():
 		tree = html.fromstring(page.content)
 		title = tree.xpath('//title/text()')
 		titleInArray = title[0].split('-')
+		sleep(1)
 
 		# Write data in log file
 		logFile = open("DATA/log/customScan.log", "w")
