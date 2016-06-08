@@ -82,6 +82,14 @@ TEST SPACE
 #insertInto("DATA/database/testDb.db", "myTitle of the death", "really good title", "print hello world", "google.com")
 #print getDatafromDatabase(database)
 
+#text1 = [1,2,3,4]
+#text2 = [1,75,65,8]
+#text3 = [1,28,789, 2]
+#corpus = [text1, text2, text3]
+
+#from fp_growth import find_frequent_itemsets
+#for itemset in find_frequent_itemsets(corpus, 2):
+#	print itemset
 
 
 #title = "my title"
