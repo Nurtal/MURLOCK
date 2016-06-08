@@ -6,7 +6,7 @@ Database
 
 
 import sqlite3
-
+from fp_growth import find_frequent_itemsets
 
 
 
@@ -73,11 +73,49 @@ def getDatafromDatabase(database):
 
 
 
+
+
+
+
+
+def fptreeMiningOn(database, treshold):
+	"""
+	Scan title and subtitle in database
+	return set of frequent items
+	(i.e items appearing frequently together)
+	
+	Develop to identify "main subjects" in articles
+	"""
+	conn = sqlite3.connect(database)
+	cursor = conn.cursor()
+
+	cursor.execute("""SELECT title, subtitle FROM gnolledge""")
+	result = cursor.fetchall()
+	conn.close()
+	
+	corpus = []
+	for entries in result:
+		text = entries[0]+entries[1]
+		textInArray = text.split(" ")
+		corpus.append(textInArray)
+
+	final = []
+	result = find_frequent_itemsets(corpus, treshold)
+	for itemset in result:
+		final.append(itemset)
+	
+	return final
+
+
+
+
+
 """
 TEST SPACE
 """
 
-#database = "DATA/database/testDb.db"
+#database = "DATA/database/test.db"
+#treshold = 65
 #createDatabase("DATA/database/testDb.db")
 #insertInto("DATA/database/testDb.db", "myTitle of the death", "really good title", "print hello world", "google.com")
 #print getDatafromDatabase(database)
@@ -87,11 +125,9 @@ TEST SPACE
 #text3 = [1,28,789, 2]
 #corpus = [text1, text2, text3]
 
-#from fp_growth import find_frequent_itemsets
-#for itemset in find_frequent_itemsets(corpus, 2):
-#	print itemset
 
-
+#machin = fptreeMiningOn(database, treshold)
+#print machin
 #title = "my title"
 #subtitle = "Grmblbmblb"
 #code = "print hello world"
