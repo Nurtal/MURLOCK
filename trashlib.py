@@ -504,6 +504,22 @@ def retrieveUrlfromStackOverFlowfor(query):
 
 
 
+def removeDuplicateUrl(inputfile, outputfile):
+	"""
+	Create a new file
+	with no duplicate URL
+	"""
+	
+	lines_seen = set()
+	outfile = open(outputfile, "w")
+	for line in open(inputfile, "r"):
+    		if line not in lines_seen:
+			outfileput.write(line)
+			lines_seen.add(line)
+
+	outputfile.close()
+
+
 
 """
 Test Space
@@ -513,6 +529,8 @@ Test Space
 #scanStackOverFlow(query)
 #retrieveUrlfromStackOverFlowfor("c#")
 #customScanStackOverFlow()
+
+
 
 
 #stuff = collectCodeFromSOF('http://stackoverflow.com/questions/846257/how-can-i-remove-the-last-seven-characters-of-a-hash-value-in-perl')

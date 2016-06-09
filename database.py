@@ -76,8 +76,6 @@ def getDatafromDatabase(database):
 
 
 
-
-
 def fptreeMiningOn(database, treshold):
 	"""
 	Scan title and subtitle in database
@@ -107,14 +105,38 @@ def fptreeMiningOn(database, treshold):
 	return final
 
 
+def generateTextFileFrom(database, exportFile):
+
+	"""
+	Generate Text file
+	containing all title and
+	subtitle.
+
+	use for the search of collocation
+	with nltk
+	"""
 
 
+	conn = sqlite3.connect(database)
+	cursor = conn.cursor()
+
+	cursor.execute("""SELECT title, subtitle FROM gnolledge""")
+	result = cursor.fetchall()
+	conn.close()
+
+	fileToExport = open(exportFile, "w")
+	for entries in result:
+		for elt in entries:
+			fileToExport.write(elt)
+		fileToExport.write(".\n")
+	fileToExport.close()
+	
 
 """
 TEST SPACE
 """
 
-#database = "DATA/database/test.db"
+database = "DATA/database/test.db"
 #treshold = 65
 #createDatabase("DATA/database/testDb.db")
 #insertInto("DATA/database/testDb.db", "myTitle of the death", "really good title", "print hello world", "google.com")
@@ -125,6 +147,7 @@ TEST SPACE
 #text3 = [1,28,789, 2]
 #corpus = [text1, text2, text3]
 
+generateTextFileFrom(database, "DATA/test/test.txt")
 
 #machin = fptreeMiningOn(database, treshold)
 #print machin
