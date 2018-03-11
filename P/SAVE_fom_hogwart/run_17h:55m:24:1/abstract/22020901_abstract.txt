@@ -1,0 +1,1 @@
+To validate, using physician review of abstracted medical chart data as a gold standard, a claims-based algorithm developed to identify gastrointestinal (GI) perforation cases among rheumatoid arthritis (RA) patients.

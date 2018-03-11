@@ -1,0 +1,1 @@
+This paper describes the development of a risk adjustment (RA) model predictive of individual lesion treatment failure in percutaneous coronary interventions (PCI) for use in a quality monitoring and improvement program.

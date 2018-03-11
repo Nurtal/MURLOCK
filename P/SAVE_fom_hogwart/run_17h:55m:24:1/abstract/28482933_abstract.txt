@@ -1,0 +1,1 @@
+This study developed and validated a claims-based statistical model to predict rheumatoid arthritis (RA) disease activity, measured by the 28-joint count Disease Activity Score (DAS28).

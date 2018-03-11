@@ -1,0 +1,1 @@
+To develop and validate a new algorithm to identify patients with rheumatoid arthritis (RA) and estimate disease prevalence using administrative health databases (AHDs) of the Italian Lombardy region.

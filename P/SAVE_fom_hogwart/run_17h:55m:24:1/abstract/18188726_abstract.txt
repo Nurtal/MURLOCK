@@ -1,0 +1,1 @@
+To test if a combination of biomarkers can increase the classification power of autoantibodies to cyclic citrullinated peptides (anti-CCP) in the diagnosis of rheumatoid arthritis (RA) depending on the diagnostic situation.

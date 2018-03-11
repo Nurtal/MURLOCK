@@ -1,0 +1,1 @@
+Toll-like receptor 7 (TLR7) detects viral RNA, but can be activated inappropriately by self-RNA, leading to autoimmunity. Deane et al. (2007) show that Tlr7 gene dosage is directly related to the risk of lupus in a mouse model.

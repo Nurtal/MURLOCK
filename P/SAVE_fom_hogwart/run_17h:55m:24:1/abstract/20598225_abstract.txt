@@ -1,0 +1,1 @@
+Monitoring of disease activity using DAS28 is more effective than routine RA care, but the ESR measurement is time consuming. Alternative rapid ESR determination methods can be used but effects on DAS28 classification are unknown.

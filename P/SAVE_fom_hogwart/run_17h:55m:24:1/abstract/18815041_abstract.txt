@@ -1,0 +1,1 @@
+To detect gait alterations in rheumatoid arthritis (RA) patients using peak pressure curves (PPC) and normalized force curves (NFC) instead of clinical classification based on the health assessment questionnaire (HAQ).

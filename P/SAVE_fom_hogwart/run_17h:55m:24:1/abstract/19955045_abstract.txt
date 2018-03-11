@@ -1,0 +1,1 @@
+To identify cutpoints reflecting Patient Acceptable Symptom State (PASS) and Minimal Clinically Important Improvement (MCII) in patient-reported multi-attribute health status classification systems and health status measurements among patients with rheumatoid arthritis (RA), ankylosing spondylitis (AS), and psoriatic arthritis (PsA).
